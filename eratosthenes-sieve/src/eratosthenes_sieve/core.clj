@@ -10,6 +10,8 @@
   (remove #(multiple-of? % prime) numbers))
 
 (defn primes-up-to [n]
-  (sieve
-   (sieve (all-integers-up-to n) 2)
-   3))
+  (loop [numbers (all-integers-up-to n)
+         current (first numbers)]
+    (if (= current n)
+      numbers
+      (recur (sieve numbers current) (inc current)))))
