@@ -7,3 +7,7 @@
 
 (require
  '[zilti.boot-midje :refer [midje]])
+
+(deftask autotest
+  []
+  (comp (watch) (midje :test-paths #{"test"})))
