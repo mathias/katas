@@ -10,4 +10,6 @@
 
 (deftask autotest
   []
-  (comp (watch) (midje :test-paths #{"test"})))
+  (set-env! :source-paths #{"test" "src"})
+  (comp (midje :autotest true
+               :test-paths #{"test"}) (wait)))
