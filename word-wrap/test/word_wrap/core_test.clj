@@ -12,4 +12,6 @@
        (fact "Wrap single word when requested cols is less than its length"
              (wrap "word" 2) => "wo\nrd")
        (fact "Wrap string without spaces that will wrap multiple times"
-             (wrap "abcdefghij" 3) => "abc\ndef\nghi\nj"))
+             (wrap "abcdefghij" 3) => "abc\ndef\nghi\nj")
+       (fact "Wrap words when space is right at column limit"
+             (wrap "word word" 5) => "word\nword"))
