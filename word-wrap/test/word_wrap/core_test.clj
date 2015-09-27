@@ -7,5 +7,5 @@
              (wrap "" 80) => "")
        (fact "Text that is less than the requested cols does not wrap"
              (wrap "this" 10) => "this")
-       (fact "Wrap two words after the space"
-             (wrap "word word" 6) => "word\nword"))
+       (fact "Wrap single word when requested cols is less than its length"
+             (wrap "word" 2) => "wo\nrd"))
