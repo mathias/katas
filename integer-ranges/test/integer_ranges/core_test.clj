@@ -12,4 +12,10 @@
         (all-numbers "[2,6]") => [2 3 4 5 6]
         (all-numbers "[1, 5]") => [1 2 3 4 5]
         (all-numbers "(1,5]") => [2 3 4 5]
-        (all-numbers "(1,5)") => [2 3 4]))
+        (all-numbers "(1,5)") => [2 3 4])
+       (fact
+        "it knows when an interval contains another interval"
+        (contains-range? "[2,10)" "[2,5]") => true
+        (contains-range? "(2,10]" "[2,5]") => false
+        (contains-range? "[2,4]" "[2,5]") => false
+        (contains-range? "[2,4]" "[2,5)") => true))

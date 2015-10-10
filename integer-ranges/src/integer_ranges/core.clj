@@ -27,3 +27,8 @@
   (let [interval-range (all-numbers interval)
         numbers (parse-numbers includes)]
     (every? #(contains? (set interval-range) %) numbers)))
+
+(defn contains-range? [interval-a interval-b]
+  (let [range-a (all-numbers interval-a)
+        range-b (all-numbers interval-b)]
+    (every? #(contains? (set range-a) %) range-b)))
