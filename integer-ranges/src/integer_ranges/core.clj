@@ -35,3 +35,8 @@
   (let [range-a (all-numbers interval-a)
         range-b (all-numbers interval-b)]
     (coll-contains-coll? range-a range-b)))
+
+(defn overlaps? [a b]
+  (let [[start-a end-a] (parse-interval a)
+        [start-b end-b] (parse-interval b)]
+    (and (< start-a end-b) (> end-a start-b))))
