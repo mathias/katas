@@ -32,4 +32,12 @@
         (overlaps? "[1,2)" "[5,10)") => false
         (overlaps? "[2,10]" "(10,20)") => false
         (overlaps? "[2,10]" "[10,20)") => true
-        (overlaps? "[2,10)" "[10,20)") => false))
+        (overlaps? "[2,10)" "[10,20)") => false)
+       (fact
+        "knows when two intervals are equal
+         (being equal means that they include the same numbers)"
+        (equals? "[2,10)" "[9,10)") => false
+        (equals? "[5,8]" "[5,8]") => true
+        (equals? "[5,8]" "[5,9)") => true
+        (equals? "[4,8]" "(3,9)") => true
+        (equals? "(4,8]" "[5,9)") => true))

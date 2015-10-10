@@ -40,3 +40,6 @@
   (let [[start-a end-a] (parse-interval a)
         [start-b end-b] (parse-interval b)]
     (and (< start-a end-b) (> end-a start-b))))
+
+(defn equals? [a b]
+  (= (parse-interval a) (parse-interval b)))
