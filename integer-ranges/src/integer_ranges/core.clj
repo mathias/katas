@@ -23,12 +23,15 @@
   (let [[start end] (parse-interval interval)]
     (range start end)))
 
+(defn- coll-contains-coll? [coll1 coll2]
+  (every? #(contains? (set coll1) %) coll2))
+
 (defn includes? [interval includes]
   (let [interval-range (all-numbers interval)
         numbers (parse-numbers includes)]
-    (every? #(contains? (set interval-range) %) numbers)))
+    (coll-contains-coll? interval-range numbers)))
 
 (defn contains-range? [interval-a interval-b]
   (let [range-a (all-numbers interval-a)
         range-b (all-numbers interval-b)]
-    (every? #(contains? (set range-a) %) range-b)))
+    (coll-contains-coll? range-a range-b)))
